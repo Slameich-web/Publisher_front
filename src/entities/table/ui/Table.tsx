@@ -46,19 +46,16 @@ interface TableProps {
 }
 const Table = ({ tableData }: TableProps) => {
   return (
-    <div style={{ marginLeft: '24px', marginRight: '24px' }}>
-      <DataGrid
-        className="MuiDataGrid-autoHeight"
-        showColumnVerticalBorder
-        hideFooterPagination
-        disableMultipleRowSelection
-        disableColumnSorting
-        disableColumnMenu
-        hideFooterSelectedRowCount
-        rows={tableData}
-        columns={columns}
-      />
-    </div>
+    <DataGrid
+      className="MuiDataGrid-autoHeight"
+      showColumnVerticalBorder
+      disableMultipleRowSelection
+      disableColumnSorting
+      disableColumnMenu
+      hideFooterSelectedRowCount
+      rows={tableData}
+      columns={columns}
+    />
   );
 };
 

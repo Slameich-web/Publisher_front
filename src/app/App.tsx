@@ -1,8 +1,8 @@
 import { AppRouter } from './providers/router';
-
+import styles from './App.module.scss';
 function App() {
   return (
-    <div>
+    <div className={styles.app}>
       <AppRouter />
     </div>
   );

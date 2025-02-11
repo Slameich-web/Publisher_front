@@ -1,7 +1,7 @@
-import React from 'react';
 import { Table } from '../../../entities/table';
 import { Typography } from '@mui/material';
 import { RowsType } from '../../../shared/types/types';
+import styles from './JournalTable.module.scss';
 
 interface JournalTableProps {
   tableData: RowsType[];
@@ -10,8 +10,10 @@ interface JournalTableProps {
 
 const JournalTable = ({ tableData, title }: JournalTableProps) => {
   return (
-    <div>
-      <Typography>{title}</Typography>
+    <div className={styles.container}>
+      <Typography className={styles.title} color="secondary" variant="h4">
+        {title}
+      </Typography>
       <Table tableData={tableData} />
     </div>
   );

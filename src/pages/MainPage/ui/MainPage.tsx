@@ -34,7 +34,7 @@ const MainPage = () => {
   ];
   return (
     <div>
-      <JournalTable tableData={rows} title={'Title'} />
+      <JournalTable tableData={rows} title={'Journal1'} />
     </div>
   );
 };
