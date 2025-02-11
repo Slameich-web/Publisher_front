@@ -1,5 +1,30 @@
-import React from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
+
+type ChiefEditorType =
+  | 'Ready'
+  | 'In_Process'
+  | 'Not_Ready_And_In_Stock'
+  | 'Not_Ready_And_Ordered';
+type ScienceEditorType = 'Ready' | 'In_Process' | 'Not_Ready';
+type AuthorCoordinationType = 'Ready' | 'In_Process' | 'Not_Ready';
+type CorrectorType = 'Ready' | 'In_Process' | 'Not_Ready';
+type PageProofsType = 'Ready' | 'Not_Ready';
+type DummyType = 'Ready' | 'Not_Ready';
+
+interface RowsType {
+  id: number;
+  name: string;
+  topic: string;
+  pages: number;
+  firstPage: number;
+  lastPage: number;
+  chiefEditor: ChiefEditorType;
+  scienceEditor: ScienceEditorType;
+  authorCoordination: AuthorCoordinationType;
+  corrector: CorrectorType;
+  pageProofs: PageProofsType;
+  dummy: DummyType;
+}
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -21,41 +46,13 @@ const columns: GridColDef[] = [
   { field: 'dummy', headerName: 'dummy', width: 130 },
 ];
 
-const rows = [
-  {
-    id: 1,
-    name: 'Lannister',
-    topic: 'Cersei',
-    pages: 42,
-    firstPage: 1,
-    lastPage: 2,
-    chiefEditor: 'Ready',
-    scienceEditor: 'Not_Ready',
-    authorCoordination: 'Not_Ready',
-    corrector: 'Not_Ready',
-    pageProofs: 'Not_Ready',
-    dummy: 'Not_Ready',
-  },
-  {
-    id: 2,
-    name: 'Lannister',
-    topic: 'Cersei',
-    pages: 42,
-    firstPage: 1,
-    lastPage: 2,
-    chiefEditor: 'Ready',
-    scienceEditor: 'Not_Ready',
-    authorCoordination: 'Not_Ready',
-    corrector: 'Not_Ready',
-    pageProofs: 'Not_Ready',
-    dummy: 'Not_Ready',
-  },
-];
-
-const Table = () => {
+interface TableProps {
+  tableData: RowsType[];
+}
+const Table = ({ tableData }: TableProps) => {
   return (
     <DataGrid
-      rows={rows}
+      rows={tableData}
       columns={columns}
       pageSizeOptions={[5, 10]}
       checkboxSelection
