@@ -6,7 +6,7 @@ const MainPage = () => {
     {
       id: 1,
       name: 'Lannister',
-      topic: 'Cersei',
+      topic: 'Cersei asda sdasdasd asdas dasd asdasdasd asdasd',
       pages: 42,
       firstPage: 1,
       lastPage: 2,

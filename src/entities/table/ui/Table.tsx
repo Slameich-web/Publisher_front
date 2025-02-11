@@ -27,23 +27,18 @@ interface RowsType {
 }
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'topic', headerName: 'topic', width: 130 },
-  { field: 'name', headerName: 'name', width: 130 },
-  {
-    field: 'pages',
-    headerName: 'pages',
-    type: 'number',
-    width: 90,
-  },
+  { field: 'id', headerName: 'ID', width: 20 },
+  { field: 'topic', headerName: 'topic', width: 240 },
+  { field: 'name', headerName: 'name', width: 160 },
+  { field: 'pages', headerName: 'pages', width: 60 },
   { field: 'firstPage', headerName: 'firstPage', width: 80 },
   { field: 'lastPage', headerName: 'lastPage', width: 80 },
-  { field: 'chiefEditor', headerName: 'chiefEditor', width: 130 },
-  { field: 'scienceEditor', headerName: 'scienceEditor', width: 130 },
-  { field: 'authorCoordination', headerName: 'authorCoordination', width: 130 },
-  { field: 'corrector', headerName: 'corrector', width: 130 },
-  { field: 'pageProofs', headerName: 'pageProofs', width: 130 },
-  { field: 'dummy', headerName: 'dummy', width: 130 },
+  { field: 'chiefEditor', headerName: 'chiefEditor', width: 120 },
+  { field: 'scienceEditor', headerName: 'scienceEditor', width: 120 },
+  { field: 'authorCoordination', headerName: 'authorCoordination', width: 160 },
+  { field: 'corrector', headerName: 'corrector', width: 120 },
+  { field: 'pageProofs', headerName: 'pageProofs', width: 120 },
+  { field: 'dummy', headerName: 'dummy', width: 120 },
 ];
 
 interface TableProps {
@@ -51,13 +46,19 @@ interface TableProps {
 }
 const Table = ({ tableData }: TableProps) => {
   return (
-    <DataGrid
-      rows={tableData}
-      columns={columns}
-      pageSizeOptions={[5, 10]}
-      checkboxSelection
-      sx={{ border: 0 }}
-    />
+    <div style={{ marginLeft: '24px', marginRight: '24px' }}>
+      <DataGrid
+        className="MuiDataGrid-autoHeight"
+        showColumnVerticalBorder
+        hideFooterPagination
+        disableMultipleRowSelection
+        disableColumnSorting
+        disableColumnMenu
+        hideFooterSelectedRowCount
+        rows={tableData}
+        columns={columns}
+      />
+    </div>
   );
 };
 
